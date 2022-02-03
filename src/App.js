@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import react, { useEffect } from 'react'
+import Home from './pages/Home';
+import { useDispatch, useSelector } from 'react-redux';
+import AppRouter from './components/AppRouter'
+import { fetchAuth } from './store/actionCreators/userAC';
+import { fetchCart } from './store/actionCreators/cartAC'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const dispatch = useDispatch();
+   const { isAuth, isInitialized } = useSelector(state => state.user)
+
+   useEffect(() => {
+      dispatch(fetchAuth())
+   }, [])
+
+   useEffect(() => {
+      if (isAuth) dispatch(fetchCart())
+   }, [isAuth])
+
+   return (
+      <>
+         {isInitialized
+            ? <AppRouter />
+            : null}
+      </>
+   );
 }
 
 export default App;

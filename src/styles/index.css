@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+/*Обнуление*/
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+*,
+*:before,
+*:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+:focus,
+:active {
+   outline: none;
+}
+a:focus,
+a:active {
+   outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+   display: block;
+}
+
+html,
+body {
+   height: 100%;
+   width: 100%;
+   line-height: 1;
+   font-family: "Arial", "Segoe UI", "Fira Sans", sans-serif;
+}
+input,
+button,
+textarea {
+   font-family: inherit;
+}
+
+input::-ms-clear {
+   display: none;
+}
+button {
+   cursor: pointer;
+}
+button::-moz-focus-inner {
+   padding: 0;
+   border: 0;
+}
+a,
+a:visited {
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: none;
+}
+ul li {
+   list-style: none;
+}
+img {
+   max-width: 100%;
+   display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-size: inherit;
+   font-weight: 400;
+}
+
+#root {
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+:root {
+   --btn_orange: rgb(247, 190, 35);
+   --btn_yellow: rgb(255, 248, 34);
+   --btn_secondary: #e7e9ec;
+   --color-dark_gray: rgb(35, 47, 62);
+   --color-black: rgb(19, 25, 33);
+   --color-text_blue: rgb(0, 113, 133);
+   --color-main_bg: rgb(234, 237, 237);
+   --color-text_secondary: #565959;
+   /* fonts */
+   --font-tiny: 0.815rem;
+   --font-sm: 0.875rem;
+   --font-main: 1rem;
+   --font-md: 1.125rem;
+   --font-lg: 1.315rem;
+   --font-xl: 1.5rem;
+   /* shadows */
+   --shadow_btn: 0 0 6px rgba(255, 148, 8, 0.856);
+}
