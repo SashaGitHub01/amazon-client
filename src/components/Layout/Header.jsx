@@ -9,6 +9,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Cart, Gift, Search, Triangle, UserIcon } from '../../assets/icons';
 import Button from '../Button';
 import Nav from './Nav';
+import SearchForm from './SearchForm';
+import SearchFormSm from './SearchFormSm';
 
 const Header = () => {
    const dispatch = useDispatch()
@@ -83,15 +85,7 @@ const Header = () => {
                alt="logo"
             />
          </Link>
-         <div className="hidden lg:flex items-stretch overflow-hidden rounded-sm flex-auto mx-3">
-            <input
-               name=''
-               className='text-1 text-md leading-6 block px-2 w-full'
-            />
-            <div className="bg-yellow-400 p-1 cursor-pointer hover:bg-yellow-600 text-dark_gray">
-               <Search size={'1.75rem'} />
-            </div>
-         </div>
+         <SearchForm />
          <div className="flex items-center gap-4">
             <div className="flex items-end" ref={overRef}>
                <Popover
@@ -153,16 +147,8 @@ const Header = () => {
             </Link>
          </div>
       </div>
-      <div className="lg:hidden flex items-stretch overflow-hidden rounded-sm flex-auto my-3 px-5">
-         <input
-            name=''
-            className='text-1 text-md leading-6 block px-2 w-full'
-         />
-         <div className="bg-yellow-400 p-1 cursor-pointer hover:bg-yellow-600 text-dark_gray">
-            <Search size={'1.75rem'} />
-         </div>
-      </div>
-      <Nav />
+      <SearchFormSm />
+      <Nav user={user} />
    </header>;
 };
 

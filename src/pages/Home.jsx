@@ -11,8 +11,8 @@ export default function Home() {
    const dispatch = useDispatch();
 
    useEffect(() => {
-      if (!categories.length) dispatch(fetchCategories());
-   }, [categories])
+      dispatch(fetchCategories())
+   }, [])
 
    return (
       <Layout>
