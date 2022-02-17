@@ -2,7 +2,7 @@
    "name": "client",
    "version": "0.1.0",
    "private": true,
-   "proxy": "http://localhost:3001/api",
+   "proxy": "https://damp-castle-03877.herokuapp.com/api",
    "dependencies": {
       "@reduxjs/toolkit": "^1.7.1",
       "@stripe/stripe-js": "^1.22.0",
