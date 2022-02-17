@@ -6,7 +6,7 @@ export const fetchAuth = createAsyncThunk(
    async (_, thunk) => {
       try {
          const res = await UsersService.auth();
-
+         if (!res) throw Error('Unauthorized')
          return res;
       } catch (err) {
          return thunk.rejectWithValue('Authorization error')
