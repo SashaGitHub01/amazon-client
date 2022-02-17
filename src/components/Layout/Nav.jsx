@@ -79,7 +79,7 @@ const Nav = ({ user }) => {
             </div>
          </div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center justify-between">
          <li
             onClick={handleOpen}
             className={`md:hidden flex items-center py-2 px-2 text-white cursor-pointer
@@ -96,7 +96,6 @@ const Nav = ({ user }) => {
             </span>
          </li>
          <ul className='hidden md:flex items-center'>
-
             <li
                className={`py-2 px-2 text-white cursor-pointer
                hover:outline hover:outline-1 outline-white`}
@@ -130,6 +129,16 @@ const Nav = ({ user }) => {
                </span>
             </li>
          </ul>
+         <div className="text-white  opacity-50 hover:opacity-100">
+            <span className="">Github - </span>
+            <a
+               className="font-semibold text-orange-400 hover:text-orange-300"
+               href='https://github.com/SashaGitHub01'
+               target='_blank'
+            >
+               SashaGitHub01
+            </a>
+         </div>
       </div>
    </nav>;
 };
