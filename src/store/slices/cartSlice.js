@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-   fetchCart, setItems, setTotalItems, setTotalPrice, addItem, subItem, addToCart, removeFromCart
+   fetchCart, setItems, setTotalItems, setTotalPrice, addItem, subItem, addToCart, removeFromCart, clearCart
 } from '../actionCreators/cartAC'
 import { toFixedPrice } from '../../utils/toFixedPrice'
 
@@ -29,7 +29,7 @@ const cartSlice = createSlice({
          state.cart = null;
          state.isFetching = false;
          state.error = action.payload;
-         state.items = null;
+         state.items = [];
          state.totalItems = 0;
          state.totalPrice = 0;
       },
@@ -117,17 +117,29 @@ const cartSlice = createSlice({
          state.isCartProcessing = false;
       },
 
-      //
+      //items
       [setItems]: (state, action) => {
          state.items = action.payload
       },
 
+      //items count
       [setTotalItems]: (state, action) => {
          state.totalItems = action.payload
       },
 
+      //total price
       [setTotalPrice]: (state, action) => {
          state.totalPrice = action.payload
+      },
+
+      //clear cart after logout
+      [clearCart]: (state) => {
+         state.cart = null;
+         state.isFetching = false;
+         state.error = null;
+         state.items = [];
+         state.totalItems = 0;
+         state.totalPrice = 0;
       },
    }
 })

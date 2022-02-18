@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAuth, fetchLogout, fetchSignIn, fetchSignUp } from "../actionCreators/userAC";
+import { fetchAuth, fetchLogout, fetchSignIn, fetchSignUp, resetError } from "../actionCreators/userAC";
 
 const initialState = {
    user: null,
@@ -52,6 +52,7 @@ const userSlice = createSlice({
 
       [fetchSignUp.pending.type]: (state, action) => {
          state.isSigning = true;
+         state.signError = null
       },
 
       [fetchSignUp.rejected.type]: (state, action) => {
@@ -71,12 +72,18 @@ const userSlice = createSlice({
 
       [fetchSignIn.pending.type]: (state, action) => {
          state.isSigning = true;
+         state.signError = null
       },
 
       [fetchSignIn.rejected.type]: (state, action) => {
          state.signError = action.payload;
          state.isSigning = false;
       },
+
+      //reset login&reg error
+      [resetError]: (state) => {
+         state.signError = null
+      }
    }
 })
 

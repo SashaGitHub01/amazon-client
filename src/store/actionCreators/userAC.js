@@ -1,5 +1,7 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import { UsersService } from '../../API/UserService'
+
+export const resetError = createAction('user/resetError')
 
 export const fetchAuth = createAsyncThunk(
    'user/fetchAuth',
@@ -22,7 +24,7 @@ export const fetchSignIn = createAsyncThunk(
 
          return res;
       } catch (err) {
-         return thunk.rejectWithValue('Sign In error')
+         return thunk.rejectWithValue(err.response?.data.message || 'Server error')
       }
    }
 )
@@ -35,7 +37,7 @@ export const fetchSignUp = createAsyncThunk(
 
          return res;
       } catch (err) {
-         return thunk.rejectWithValue('Sign Up error')
+         return thunk.rejectWithValue(err.response?.data.message || 'Server error')
       }
    }
 )
@@ -44,9 +46,9 @@ export const fetchLogout = createAsyncThunk(
    'user/fetchLogout',
    async (_, thunk) => {
       try {
-         const res = await UsersService.logout();
+         await UsersService.logout();
       } catch (err) {
-         return thunk.rejectWithValue(err)
+         return thunk.rejectWithValue(err?.message)
       }
    }
 )

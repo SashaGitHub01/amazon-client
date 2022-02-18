@@ -6,11 +6,12 @@ import { fetchLogout } from '../../store/actionCreators/userAC'
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { Cart, Gift, Search, Triangle, UserIcon } from '../../assets/icons';
+import { Cart, Gift, Triangle, UserIcon } from '../../assets/icons';
 import Button from '../Button';
 import Nav from './Nav';
 import SearchForm from './SearchForm';
 import SearchFormSm from './SearchFormSm';
+import { clearCart } from '../../store/actionCreators/cartAC'
 
 const Header = () => {
    const dispatch = useDispatch()
@@ -39,6 +40,7 @@ const Header = () => {
 
    const logout = () => {
       dispatch(fetchLogout())
+      dispatch(clearCart())
    }
 
    const navTo = () => {
@@ -89,7 +91,9 @@ const Header = () => {
          <div className="flex items-center gap-4">
             <div className="flex items-end" ref={overRef}>
                <Popover
+                  trigger={'click'}
                   content={<PopContent />}
+                  className='flex items-end'
                >
                   <div className="text-white  truncate max-w-[140px]  cursor-pointer">
                      <div className="lg:block hidden">
@@ -107,10 +111,10 @@ const Header = () => {
                         </span>
                      </div>
                   </div>
+                  <div className="" ref={ref}>
+                     <Triangle className='text-gray-300 ml-1' />
+                  </div>
                </Popover>
-               <div className="" ref={ref}>
-                  <Triangle className='text-gray-300 ml-1' />
-               </div>
             </div>
             <div className="flex items-end cursor-pointer">
                <Link className="text-white" to='/orders'>

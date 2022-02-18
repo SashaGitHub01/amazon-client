@@ -4,6 +4,7 @@ import { CartService } from '../../API/CartItemsService'
 export const setItems = createAction('cart/setItems')
 export const setTotalItems = createAction('cart/setTotalItems')
 export const setTotalPrice = createAction('cart/setTotalPrice')
+export const clearCart = createAction('cart/clearCart')
 
 export const fetchCart = createAsyncThunk(
    'cart/fetchCart',

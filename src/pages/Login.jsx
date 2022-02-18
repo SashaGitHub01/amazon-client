@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import LoginForm from '../components/Login/LoginForm';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../components/Button';
 import { useSelector } from 'react-redux';
 import RegForm from '../components/Login/RegForm';
+import { useEffect } from 'react';
 
 const Login = () => {
+   const nav = useNavigate()
    const [signin, setSignin] = useState(true);
    const [signup, setSignup] = useState(false);
-   const { isSigning, signError } = useSelector(state => state.user)
+   const { isSigning, signError, user } = useSelector(state => state.user)
+
+   useEffect(() => {
+      if (!!user) {
+         nav('/')
+      }
+   }, [user])
 
    const openSignup = () => {
       setSignup(true)
@@ -37,9 +45,9 @@ const Login = () => {
                         : 'Create account'}
                   </div>
                   {signin
-                     ? <LoginForm error={signError} />
+                     ? <LoginForm error={signError} isSigning={isSigning} />
                      : signup
-                        ? <RegForm error={signError} />
+                        ? <RegForm error={signError} isSigning={isSigning} />
                         : null}
                </div>
                <div className="py-4 w-full">
