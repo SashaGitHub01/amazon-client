@@ -15,5 +15,9 @@
 
 ![image](https://user-images.githubusercontent.com/91053244/169637218-949219b2-c588-4dbb-86fe-bc03dbbfb104.png)
 
+## 🟢 Cart Page 
+![image](https://user-images.githubusercontent.com/91053244/169638416-678ddadd-1c30-4c1f-b043-c739f44d6eed.png)
 
+## 🟢 Payment Page 
+![image](https://user-images.githubusercontent.com/91053244/169638609-7c6fbc07-8ef4-42c4-9ced-c7cac0a19aea.png)
 
